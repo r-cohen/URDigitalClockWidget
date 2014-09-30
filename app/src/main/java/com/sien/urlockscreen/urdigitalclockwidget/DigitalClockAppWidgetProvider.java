@@ -110,13 +110,11 @@ public class DigitalClockAppWidgetProvider extends AppWidgetProvider {
         int height = (int) (fontSizePX / 0.75);
         Bitmap bitmap = Bitmap.createBitmap(textWidth, height, Bitmap.Config.ARGB_4444);
         Canvas canvas = new Canvas(bitmap);
-        float xOriginal = pad;
-        canvas.drawText(text, xOriginal, fontSizePX, paint);
+        canvas.drawText(text, pad, fontSizePX, paint);
         return bitmap;
     }
     private static int convertDiptoPix(Context context, float dip) {
-        int value = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dip, context.getResources().getDisplayMetrics());
-        return value;
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dip, context.getResources().getDisplayMetrics());
     }
 
     private static void updateTime(Context context) {
