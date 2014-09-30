@@ -1,0 +1,24 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sien.urlockscreen.urdigitalclockwidget">
+
+    <application android:allowBackup="true"
+        android:label="@string/app_name"
+        android:icon="@drawable/ic_launcher"
+        android:theme="@style/AppTheme">
+
+        <receiver android:name="com.sien.urlockscreen.urdigitalclockwidget.DigitalClockAppWidgetProvider" android:exported="true" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/digital_clock_widget_info" />
+        </receiver>
+        <service android:name=".DigitalClockAppWidgetProvider$ClockUpdateService" android:exported="true">
+            <intent-filter>
+                <action android:name="com.sien.urlockscreen.urdigitalclockwidget.action.UPDATE" />
+            </intent-filter>
+        </service>
+
+    </application>
+
+</manifest>
